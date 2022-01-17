@@ -1,7 +1,5 @@
 const axios = require('axios');
-const fs = require('fs');
 const Json2csvParser = require('json2csv').Parser;
-const path = require('path')
 
 exports.homeRoutes = (req, res) => {
     axios.get('http://localhost:3000/api/items')
@@ -30,8 +28,6 @@ exports.update_item = (req, res) =>{
 exports.export = async (req, res) =>{
     await axios.get('http://localhost:3000/api/items')
         .then(function(response){
-            console.log(response.data)
-
             const csvFields = ['name', 'price','description','quantity'];
             const json2csvParser = new Json2csvParser({ csvFields });
 
