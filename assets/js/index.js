@@ -26,6 +26,10 @@ $("#update_item").submit(function(event){
 
 })
 
+$("#export").submit(function(event){
+    alert("CSV exported successfully!");
+})
+
 if(window.location.pathname == "/"){
     $ondelete = $(".table tbody td a.delete");
     $ondelete.click(function(){

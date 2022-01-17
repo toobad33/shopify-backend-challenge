@@ -7,6 +7,7 @@ const controller = require('../controller/controller');
 route.get('/', services.homeRoutes);
 route.get('/add-item', services.add_item)
 route.get('/update-item', services.update_item)
+route.get('/export', services.export)
 
 // API
 route.post('/api/items', controller.create);
