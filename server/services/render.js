@@ -42,33 +42,11 @@ exports.export = async (req, res) =>{
                 return res.status(500).json({ err });
             }
 
-            fs.writeFile('TEST.csv', csv, function(err) {
-                if (err) throw err;
-                console.log('file saved');
-            });
-
-            res.render("export")
-
-            // const dateTime = moment().format('YYYYMMDDhhmmss');
-            // const filePath = path.join(__dirname, "..", "public", "exports", "csv-" + dateTime + ".csv")
-            // fs.writeFile(filePath, csv, function (err) {
-            //     if (err) {
-            //     return res.json(err).status(500);
-            //     }
-            //     else {
-            //     setTimeout(function () {
-            //         fs.unlinkSync(filePath); // delete this file after 30 seconds
-            //     }, 30000)
-            //     return res.json("/exports/csv-" + dateTime + ".csv");
-            //     }
-            // });
-
+            res.setHeader('Content-disposition', 'attachment; filename=items-report.csv');
+            res.set('Content-Type', 'text/csv');
+            res.status(200).send(csv);
         })
         .catch(err =>{
             res.send(err);
         })
-    
-
-
-   
 }
