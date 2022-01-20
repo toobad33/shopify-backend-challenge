@@ -1,13 +1,20 @@
-#### To Run this project, clone it and install modules using
+#### Shopify Technical Challenge
 ```
-npm install
-```
-
-Create a config.env file with 
-  PORT={yourPort}
-  MONGO_URI={yourURI}
+1- clone the project
+2- directly in project root: $npm install
 
 ```
-npm start
+Important!
+
+You need to have an active cluster that is up in MongoDB. See https://www.mongodb.com/basics/clusters/mongodb-cluster-setup
+
+You will need to create a config.env file and place it in the project root
+
+File contains:
+  PORT={yourPort} ex:3000
+  MONGO_URI={yourURI} ex:mongodb+srv://<username>:<password>@<clustername>.seash.mongodb.net/users?retryWrites=true&w=majority
+
 ```
-Go to localhost:PORT
+Once the configuration has been complete, run in the project root: $npm start
+```
+Open browser to localhost:PORT
