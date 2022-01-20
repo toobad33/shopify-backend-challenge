@@ -1,8 +1,12 @@
+const DATABASE_URL = "https://shopify-simple-inventory.herokuapp.com";
+
 const axios = require('axios');
 const Json2csvParser = require('json2csv').Parser;
+const ALL_ITEM_URL = DATABASE_URL + '/api/items';
+
 
 exports.homeRoutes = (req, res) => {
-    axios.get('http://localhost:3000/api/items')
+    axios.get(ALL_ITEM_URL)
         .then(function(response){
             res.render('index', { items : response.data });
         })
@@ -16,7 +20,7 @@ exports.add_item = (req, res) =>{
 }
 
 exports.update_item = (req, res) =>{
-    axios.get('http://localhost:3000/api/items', { params : { id : req.query.id }})
+    axios.get(ALL_ITEM_URL, { params : { id : req.query.id }})
         .then(function(itemData){
             res.render("update_item", { item : itemData.data})
         })
@@ -26,7 +30,7 @@ exports.update_item = (req, res) =>{
 }
 
 exports.export = async (req, res) =>{
-    await axios.get('http://localhost:3000/api/items')
+    await axios.get(ALL_ITEM_URL)
         .then(function(response){
             const csvFields = ['name', 'price','description','quantity'];
             const json2csvParser = new Json2csvParser({ csvFields });

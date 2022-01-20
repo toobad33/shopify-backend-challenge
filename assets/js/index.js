@@ -1,3 +1,6 @@
+const DATABASE_URL = "https://shopify-simple-inventory.herokuapp.com";
+
+const ALL_ITEM_URL = DATABASE_URL + '/api/items';
 
 $("#add_item").submit(function(event){
     alert("Item added successfully!");
@@ -14,14 +17,14 @@ $("#update_item").submit(function(event){
     })
 
     var request = {
-        "url" : `http://localhost:3000/api/items/${data.id}`,
+        "url" : `${ALL_ITEM_URL}/${data.id}`,
         "method" : "PUT",
         "data" : data
     }
 
     $.ajax(request).done(function(response){
         alert("Item updated successfully!");
-        location.href = "http://localhost:3000/";
+        location.href = DATABASE_URL + "/";
     })
 
 })
@@ -32,7 +35,7 @@ if(window.location.pathname == "/"){
         var id = $(this).attr("data-id")
 
         var request = {
-            "url" : `http://localhost:3000/api/items/${id}`,
+            "url" : `${ALL_ITEM_URL}/${id}`,
             "method" : "DELETE"
         }
 
