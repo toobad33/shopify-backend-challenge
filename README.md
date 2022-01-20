@@ -1,10 +1,7 @@
-#### Shopify Technical Challenge
+# Shopify Technical Challenge
 
 Submission for Shopify Technical Intern Challenge 2022
 
-You can see application in Chrome at 
-```
-https://shopify-simple-inventory.herokuapp.com/
-```
+Try it out at https://shopify-simple-inventory.herokuapp.com/
 
-Built with node, express and mongodb.
+Built with node, express and mongodb
